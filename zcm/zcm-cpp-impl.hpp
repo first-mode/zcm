@@ -219,10 +219,6 @@ class TypedSubscription : public virtual Subscription
     {
         int status = msgMem.decode(rbuf->data, 0, rbuf->data_size);
         if (status < 0) {
-            #ifndef ZCM_EMBEDDED
-            fprintf (stderr, "Error %d decoding %s on channel \"%s\"\n",
-                             status, Msg::getTypeName(), channel.c_str());
-            #endif
             return -1;
         }
         return 0;
@@ -262,10 +258,6 @@ class TypedFunctionalSubscription : public virtual Subscription
     {
         int status = msgMem.decode(rbuf->data, 0, rbuf->data_size);
         if (status < 0) {
-            #ifndef ZCM_EMBEDDED
-            fprintf (stderr, "Error %d decoding %s on channel \"%s\"\n",
-                             status, Msg::getTypeName(), channel.c_str());
-            #endif
             return -1;
         }
         return 0;
